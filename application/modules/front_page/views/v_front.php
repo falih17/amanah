@@ -92,64 +92,6 @@
 		</section><!--/.welcome-hero-->
 		<!--welcome-hero end -->
 
-		<!--works start -->
-		<section id="works" class="works">
-			<div class="container">
-				<div class="section-header">
-					<h2>LAYANAN KAMI</h2>
-					<p>Untuk memberikan akses kemudahan pada masyarakat dalam akses layanan secara online</p>
-				</div><!--/.section-header-->
-				<div class="works-content">
-					<div class="row">
-						<div class="col-md-4 col-sm-6">
-							<div class="single-how-works">
-								<div class="single-how-works-icon">
-									<img src="assets/logo/amanah.png" >
-								</div>
-								<h2><a href="#">AMANAH<br/>(Ajer Manasik Haji & Umrah)</a></h2>
-								<p>
-									Platform bagi publik untuk belajar materi Manasik Haji dan Umrah yang dibuat dengan dwi bahasa (Bahasa Indonesia dan Bahasa daerah Madura). Semoga bermanfaat
-								</p>
-								<button class="welcome-hero-btn how-work-btn" onclick="to_amanah();">
-								Kunjungi
-								</button>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-how-works">
-								<div class="single-how-works-icon">
-									<i class="flaticon-networking"></i>
-								</div>
-								<h2><a href="#">Konsultasi Wanita dan Keluarga Sakinah</a></h2>
-								<p>
-									Kami memberikan pembinaan pernikahan dan keluarga sakinah.
-								</p>
-								<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='https://wa.link/vypm4t'">
-								Hubungi kami
-								</button>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<div class="single-how-works">
-								<div class="single-how-works-icon">
-									<i class="flaticon-location-on-road"></i>
-								</div>
-								<h2><a href="#">Konsultasi Zakat, Infaq dan Shodaqoh (ZIS)</h2>
-								<p>
-								Konsultasi dan salurkan ZIS Anda ke lembaga yang terdaftar legal. 									
-								</p>
-								<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='https://wa.link/vypm4t'">
-								Hubungi kami
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!--/.container-->
-		
-		</section><!--/.works-->
-		<!--works end -->
-
 		<!--explore start -->
 		<section id="explore" class="explore">
 			<div class="container">
@@ -163,7 +105,6 @@
 				<div class="explore-content">
 					<div class="row">
 					<?php
-						include 'config/koneksi_li.php';	
 						
 						$q = "SELECT * FROM materi 
 								WHERE IDKATEGORI = '10' AND STATUS_PUBLISHED = 'y' 
@@ -237,73 +178,7 @@
 					<?php
 						endwhile;
 					?>
-						<!-- <div class="col-md-4 col-sm-6">
-							<div class="single-explore-item">
-								<div class="single-explore-img">
-									<img src="assets/images/explore/e2.jpg" alt="explore image">
-									<div class="single-explore-img-info">
-										<button onclick="window.location.href='#'">featured</button>
-										<div class="single-explore-image-icon-box">
-											<ul>
-												<li>
-													<div class="single-explore-image-icon">
-														<i class="fa fa-arrows-alt"></i>
-													</div>
-												</li>
-												<li>
-													<div class="single-explore-image-icon">
-														<i class="fa fa-bookmark-o"></i>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="single-explore-txt bg-theme-2">
-									<h2><a href="#">swim and dine resort</a></h2>
-									<p class="explore-rating-price">
-										<span class="explore-rating">4.5</span>
-										<a href="#"> 8 ratings</a> 
-										<span class="explore-price-box">
-											form
-											<span class="explore-price">50$-500$</span>
-										</span>
-										 <a href="#">hotel</a>
-									</p>
-									<div class="explore-person">
-										<div class="row">
-											<div class="col-sm-2">
-												<div class="explore-person-img">
-													<a href="#">
-														<img src="assets/images/explore/person.png" alt="explore person">
-													</a>
-												</div>
-											</div>
-											<div class="col-sm-10">
-												<p>
-													Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid ut labore et dolore magna aliqua.... 
-												</p>
-											</div>
-										</div>
-									</div>
-									<div class="explore-open-close-part">
-										<div class="row">
-											<div class="col-sm-5">
-												<button class="close-btn open-btn" onclick="window.location.href='#'">open now</button>
-											</div>
-											<div class="col-sm-7">
-												<div class="explore-map-icon">
-													<a href="#"><i data-feather="map-pin"></i></a>
-													<a href="#"><i data-feather="upload"></i></a>
-													<a href="#"><i data-feather="heart"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					 -->
+					
 					</div>
 				</div>
 			</div><!--/.container-->
