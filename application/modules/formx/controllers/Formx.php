@@ -215,7 +215,7 @@ class Formx extends MY_Controller
                             $row[]='<a href="'.$linkfile.'" class="btn blue"><i class="fa fa-download"></i> Download'
                         // .$d->{$p->column_name}
                             .'</a>';
-                        {
+                        }else{
                             $row[]="belum tersedia";
                         }
                     }elseif ($p->type == 'latlong') {
