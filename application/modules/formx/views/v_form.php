@@ -196,13 +196,13 @@
                     <?php elseif ($p->type == 'file'): ?>
                       <div>
                           <?php if (isset($row) && !empty($row->{$p->column_name})): 
-                                    if(file_exists($p->path_upload.$row->{$p->column_name})){
+                                    // if(file_exists($p->path_upload.$row->{$p->column_name})){
                             ?>
                             <a href="<?php echo base_url($p->path_upload.$row->{$p->column_name}) ?>" class="btn blue"><i class="fa fa-download"></i></a>
                           <?php 
-                                    }else{
-                                      echo "belum tersedia";
-                                    }
+                                    // }else{
+                                    //   echo "belum tersedia";
+                                    // }
                           endif ?>
                           <?php if ($authorize != 'readonly'): ?>
                           <div class="fileinput fileinput-new" data-provides="fileinput">
