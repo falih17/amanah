@@ -209,7 +209,7 @@ class Formx extends MY_Controller
                             $row[]='';
                         }
                     }elseif ($p->type == 'file') {
-                        if(file_exists($p->path_upload.$d->{$p->column_name})):
+                        if(file_exists(base_url($p->path_upload.$d->{$p->column_name}))):
                             $row[]='<a href="'. base_url($p->path_upload.$d->{$p->column_name}).'" class="btn blue"><i class="fa fa-download"></i> Download'
                         // .$d->{$p->column_name}
                         .'</a>';
