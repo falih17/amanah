@@ -209,13 +209,14 @@ class Formx extends MY_Controller
                             $row[]='';
                         }
                     }elseif ($p->type == 'file') {
-                        if(file_exists(base_url($p->path_upload.$d->{$p->column_name}))):
-                            $row[]='<a href="'. base_url($p->path_upload.$d->{$p->column_name}).'" class="btn blue"><i class="fa fa-download"></i> Download'
+                        $linkfile = base_url($p->path_upload.$d->{$p->column_name});
+                        //if(file_exists($linkfile)){
+                            $row[]='<a href="'.$linkfile.'" class="btn blue"><i class="fa fa-download"></i> Download'
                         // .$d->{$p->column_name}
-                        .'</a>';
-                        else:
-                            $row[]="belum tersedia";
-                        endif;
+                            .'</a>';
+                        // {
+                        //     $row[]="belum tersedia";
+                        // }
                     }elseif ($p->type == 'latlong') {
                         $row[]='<a href="#" target="blank" class="btn blue"><i class="fa fa-map"></i> show'
                         // .$d->{$p->column_name}
