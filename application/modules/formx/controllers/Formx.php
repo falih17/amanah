@@ -210,7 +210,8 @@ class Formx extends MY_Controller
                         }
                     }elseif ($p->type == 'file') {
                         $linkfile = base_url($p->path_upload.$d->{$p->column_name});
-                        if(isset($d->{$p->column_name})){
+                        $file_entry = $d->{$p->column_name};
+                        if(isset($file_entry)){
                             $row[]='<a href="'.$linkfile.'" class="btn blue"><i class="fa fa-download"></i> Download'
                         // .$d->{$p->column_name}
                             .'</a>';
