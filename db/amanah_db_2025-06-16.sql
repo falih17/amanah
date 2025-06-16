@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 8.0.42-0ubuntu0.20.04.1)
 # Database: amanah_db
-# Generation Time: 2025-06-16 08:56:14 +0000
+# Generation Time: 2025-06-16 16:38:35 +0000
 # ************************************************************
 
 
@@ -334,7 +334,7 @@ CREATE TABLE `s_form_param` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `lnk_m_form_m_form_param` (`form_id`) USING BTREE,
   CONSTRAINT `s_form_param_ibfk_1` FOREIGN KEY (`form_id`) REFERENCES `s_form` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=248 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=249 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
 
 LOCK TABLES `s_form_param` WRITE;
 /*!40000 ALTER TABLE `s_form_param` DISABLE KEYS */;
@@ -384,7 +384,8 @@ VALUES
 	(244,'name',44,'name','text',NULL,NULL,'',NULL,1,1,NULL,'','col-md-6',0,NULL,NULL,NULL),
 	(245,'media category',29,'media_category','select_ajax',2,NULL,'dd_category_media',NULL,1,1,1,'','col-md-6',0,NULL,NULL,NULL),
 	(246,'File Madura',29,'media_file2','file',4,NULL,'',NULL,1,1,NULL,'uploads/media/','col-md-6',0,NULL,NULL,NULL),
-	(247,'media url Madura',29,'media_url2','text',6,NULL,'',NULL,1,1,NULL,'','col-md-6',0,NULL,NULL,NULL);
+	(247,'media url Madura',29,'media_url2','text',6,NULL,'',NULL,1,1,NULL,'','col-md-6',0,NULL,NULL,NULL),
+	(248,'thumbnail',44,'thumbnail','img',NULL,NULL,'',NULL,1,1,NULL,'uploads/category_thumb/','col-md-6',0,NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `s_form_param` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -586,6 +587,7 @@ DROP TABLE IF EXISTS `t_media_category`;
 CREATE TABLE `t_media_category` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `created_by` int DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -598,11 +600,11 @@ CREATE TABLE `t_media_category` (
 LOCK TABLES `t_media_category` WRITE;
 /*!40000 ALTER TABLE `t_media_category` DISABLE KEYS */;
 
-INSERT INTO `t_media_category` (`id`, `name`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `company_id`)
+INSERT INTO `t_media_category` (`id`, `name`, `thumbnail`, `created_at`, `created_by`, `updated_at`, `updated_by`, `deleted_at`, `company_id`)
 VALUES
-	(1,'Di Pesawat','2025-06-12 04:25:52',30,'2025-06-15 05:38:23',1,NULL,1),
-	(2,'Di Asrama Haji','2025-06-12 04:26:01',30,'2025-06-15 05:38:36',1,NULL,1),
-	(3,'Rukun Ibadah','2025-06-15 05:38:59',1,NULL,NULL,NULL,NULL);
+	(1,'Di Pesawat','Screenshot_2025-05-27_at_10.07.18.png','2025-06-12 04:25:52',30,'2025-06-16 16:34:30',1,NULL,1),
+	(2,'Di Asrama Haji','Screenshot_2025-05-27_at_10.07.48.png','2025-06-12 04:26:01',30,'2025-06-16 16:34:09',1,NULL,1),
+	(3,'Rukun Ibadah','Screenshot_2025-05-27_at_10.06.46.png','2025-06-15 05:38:59',1,'2025-06-16 16:33:52',1,NULL,NULL);
 
 /*!40000 ALTER TABLE `t_media_category` ENABLE KEYS */;
 UNLOCK TABLES;
