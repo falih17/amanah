@@ -61,6 +61,7 @@
                 </div>                
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                  <button type="button" class="btn my-4" onclick="go_front();">Frontend</button>
                 </div>
               </form>
             </div>
@@ -104,6 +105,10 @@
   <script src="<?php echo base_url('assets') ?>/js/sonif.js"></script>
 
   <script>
+      function go_front(){
+        window.open("<?php echo site_url('front_page/dashboard'); ?>","blank_");
+      }
+
         $("#login-form").submit(function(e) {
             e.preventDefault();
             main.submitAjaxModal($(this));

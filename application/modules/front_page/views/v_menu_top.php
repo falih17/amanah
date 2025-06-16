@@ -41,7 +41,7 @@
 									</ul>
 								</li>
 								<li class="scroll">
-									<a href="#contact">LOGIN</a></li>
+									<a href="<?php echo site_url('auth'); ?>">LOGIN</a></li>
 									
 								</ul><!--/.nav -->
 							</li>

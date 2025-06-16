@@ -105,55 +105,26 @@
 				<div class="explore-content">
 					<div class="row">
 					<?php
-						
-						$q = "SELECT * FROM materi 
-								WHERE IDKATEGORI = '10' AND STATUS_PUBLISHED = 'y' 
-								ORDER BY MATERI_DATE_PUBLISHED DESC 
-								LIMIT 0,3";
-						//echo $q;
-						$sql = mysqli_query($conn_db,$q);
-						while($r = mysqli_fetch_array($sql)):	
-							$kalimat = strip_tags($r['ISIMATERI']);
-							$kalimat = str_replace("&nbsp;","",$kalimat);
-							$n_tok = 30;
-							$kata = explode(" ",$kalimat,$n_tok);
-							$out = "";
-							for($i=0;$i<$n_tok-1;$i++):
-								$out .= $kata[$i]." ";
-							endfor;
-							$out .= " ...";
-							$img_thumb = $r['MATERI_THUMBNAIL'];
-							$materi_foto = $r['MATERI_FOTO'];
-							$materi_date_created = $r['MATERI_DATE_CREATED'];
+						// var_dump($category);
+						foreach($category->result() as $r):
+							//var_dump($r);
 					?>
 						<div class="col-md-4  col-sm-6">
 							<div class="single-explore-item">
 								<div class="single-explore-img text-center">
-									<?php 
-										$parent_folder = "../web-v1/";
-										if(!empty($materi_foto)):
-											echo "<img src='".$parent_folder."admin/uploads/berita/".$materi_foto."' alt=\"explore image\"/>";
-										elseif(!empty($img_thumb)):
-											$path_file = $parent_folder.'/userfiles/image/".$img_thumb."';
-											if(file_exists($path_file)){
-												echo "<img src='".$parent_folder."/userfiles/image/".$img_thumb."' alt=\"explore image\"/>";
-											}else{
-												echo "<img src='".$parent_folder."/userfiles/".$img_thumb."' alt=\"explore image\"/>";
-											}
-										endif;
-									?>									
+																image		
 								</div>
 								<div class="single-explore-txt bg-theme-2">
-									<h2 class="text-center"><a href="#"><?php echo $r['JUDUL'];?></a></h2>
+									<h2 class="text-center"><a href="#"><?php echo $r->name;?></a></h2>
 									<p class="explore-rating-price">
-										<!-- <span class="explore-rating"><?php echo $r['USER_NAME']; ?></span> -->
-										<a href="#"> Tanggal : <?php echo tanggal_indo($materi_date_created); ?></a> 
+										<!-- <span class="explore-rating"></span> -->
+										<!-- <a href="#"> Tanggal : </a>  -->
 									</p>
 									<div class="explore-person">
 										<div class="row">
 											<div class="col-sm-12">
 												<p class="text-justify">
-												<?php echo $out; ?>
+												text
 												</p>
 											</div>
 										</div>
@@ -161,7 +132,7 @@
 									<div class="explore-open-close-part">
 										<div class="row">
 											<div class="col-sm-5">
-												<button class="close-btn" onclick="window.location.href='berita_detail.php?id=<?php echo $r['IDMATERI']; ?>'">Selengkapnya</button>
+												<button class="close-btn" onclick="window.location.href='#'">Selengkapnya</button>
 											</div>
 											<div class="col-sm-7">
 												<div class="explore-map-icon">
@@ -176,7 +147,7 @@
 							</div>
 						</div>
 					<?php
-						endwhile;
+						endforeach;
 					?>
 					
 					</div>
