@@ -105,7 +105,8 @@ html,body{height: 100%;}
     color: #505866;
     font-size:24px;
     font-weight: 500;
-    margin-bottom: 24px;
+    margin-top:15px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1.3px;
 }
@@ -511,7 +512,7 @@ a.welcome-hero-btn2 {
         7. Explore
 --------------------------------------*/
 .explore{
-    /* padding:55px 0 55px; */
+    padding:30px 0 20px;
     background: #f8fafb;
 }
 .explore-content{margin-top: 78px;}
@@ -590,7 +591,7 @@ a.welcome-hero-btn2 {
 
 .single-explore-txt {
     padding: 26px 25px 24px 15px;       
-    /* height:420px; */
+    height:200px;
 }
 .single-explore-txt.bg-theme-1 .explore-rating{background: #70a9ff;}
 .single-explore-txt.bg-theme-2 .explore-rating{background: #00c61c;}

@@ -64,75 +64,59 @@
 			$this->load->view("v_menu_top.php");
 		?>	
 
-		<!--welcome-hero start -->
-		<section id="home" class="welcome-hero">
-			<div class="container">
-				<div class="welcome-hero-txt">
-					<h2>Selamat Datang di <br> AMANAH</h2>
-				</div>
-				<div class="welcome-hero-serch-box">
-					<div class="welcome-hero-form">
-						<div class="single-welcome-hero-form">
-							<h3>Berita ?</h3>
-							<form action="index.html">
-								<input type="text" placeholder="Topik maupun informasi yang diinginkan" />
-							</form>
-							<div class="welcome-hero-form-icon">
-								<i class="flaticon-list-with-dots"></i>
-							</div>
-						</div>
-					</div>
-					<div class="welcome-hero-serch">
-						<button class="welcome-hero-btn" onclick="window.location.href='#'">
-							 Cari <i data-feather="search"></i> 
-						</button>
-					</div>
-				</div>
-			</div>
-		</section><!--/.welcome-hero-->
-		<!--welcome-hero end -->
-
 		<!--explore start -->
 		<section id="explore" class="explore">
 			<div class="container">
 				<div class="section-header text-center">
-					<h2>KATEGORI TOPIK</h2>
+					<h2>List Media</h2>
 					<p class="">
 						Silahkan pilih kategori topik yang diinginkan
 						<br/>
 					</p>					
 				</div><!--/.section-header-->
 				<div class="explore-content">
-					<div class="row">
+					<div class="row text-center" >
 					<?php
 						// var_dump($category);
-						foreach($category->result() as $r):
+                        if($media->num_rows()<=0){
+                            ?>
+                            <div class="col-md-4  col-sm-6">
+							<div class="single-explore-item">
+                            <?php
+                            echo "<h3>Maaf Data Belum Tersedia !,<br/>masih dalam proses translasi</h3>";
+                            ?>
+                            </div>
+						    </div>
+                            <?php
+
+                        }
+						foreach($media->result() as $r):
 							//var_dump($r);
 					?>
 						<div class="col-md-4  col-sm-6">
 							<div class="single-explore-item">
 								<div class="single-explore-img text-center">
-									<img src="<?php echo base_url('uploads/category_thumb/'.$r->thumbnail);?>" >	
+										
 								</div>
 								<div class="single-explore-txt bg-theme-2">
-									<h2 class="text-center"><a href="#"><?php echo $r->name;?></a></h2>
+									<h2 class="text-center"><a href="#"><?php echo $r->media_title;?></a></h2>
 									<div class="explore-person">
 										<div class="row">
 											<div class="col-sm-12">
 												<p class="text-justify">
-												<?php echo $r->description; ?>
+												<?php echo $r->created_at; ?>
 												</p>
 											</div>
 										</div>
 									</div>
-									<button class="btn btn-primary" onclick="goto_media(<?php echo $r->id; ?>);">Lihat</button>
+									<button class="btn btn-primary">Lihat</button>
 								</div>
 							</div>
 						</div>
 					<?php
 						endforeach;
 					?>
-					
+                        <a href="<?php echo site_url(); ?>" class="btn btn-primary btn-md">Kembali</a>
 					</div>
 				</div>
 			</div><!--/.container-->
@@ -219,9 +203,6 @@
         <!--Custom JS-->
         <script src="<?php echo base_url('assets_front'); ?>/assets/js/custom.js"></script>
         <script>
-            function goto_media(id){
-                document.location.href = "<?php echo site_url('front_page/dashboard/media_category/');?>"+id;
-            }
             
             $(document).ready(function() {
               $('#tm-home').addClass('active');

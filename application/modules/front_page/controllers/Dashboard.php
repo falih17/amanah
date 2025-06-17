@@ -20,6 +20,14 @@ class Dashboard extends CI_Controller {
         $this->load->view('v_front',$v_data);
     }
 
+    public function media_category($id){
+        $q = "SELECT * FROM t_media WHERE media_category='".$id."'";
+        $media = $this->db->query($q);
+        $v_data['media'] = $media;
+
+        $this->load->view('v_media',$v_data);
+    }
+
 }
 
 /* End of file Dashboard */
