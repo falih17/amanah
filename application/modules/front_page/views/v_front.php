@@ -112,14 +112,10 @@
 						<div class="col-md-4  col-sm-6">
 							<div class="single-explore-item">
 								<div class="single-explore-img text-center">
-																image		
+									<img src="<?php echo base_url('uploads/category_thumb/'.$r->thumbnail);?>" >	
 								</div>
 								<div class="single-explore-txt bg-theme-2">
 									<h2 class="text-center"><a href="#"><?php echo $r->name;?></a></h2>
-									<p class="explore-rating-price">
-										<!-- <span class="explore-rating"></span> -->
-										<!-- <a href="#"> Tanggal : </a>  -->
-									</p>
 									<div class="explore-person">
 										<div class="row">
 											<div class="col-sm-12">
@@ -129,20 +125,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="explore-open-close-part">
-										<div class="row">
-											<div class="col-sm-5">
-												<button class="close-btn" onclick="window.location.href='#'">Selengkapnya</button>
-											</div>
-											<div class="col-sm-7">
-												<div class="explore-map-icon">
-													<a href="#"><i data-feather="map-pin"></i></a>
-													<a href="#"><i data-feather="upload"></i></a>
-													<a href="#"><i data-feather="heart"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>

@@ -11,7 +11,9 @@
 			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 			                    <i class="fa fa-bars"></i>
 			                </button>
-							<img src="<?php echo base_url('assets'); ?>/amanah.png" width="100px"/>
+							<a href="<?php echo site_url(); ?>">
+								<img src="<?php echo base_url('assets'); ?>/amanah.png" width="100px"/>
+							</a>
 			                
 
 			            </div><!--/.navbar-header-->
@@ -21,7 +23,7 @@
 			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 			
-								<li id="tm-publikasi" class="nav-item dropdown">
+								<!-- <li id="tm-publikasi" class="nav-item dropdown">
 									<a href="#"  class="nav-link dropdown-toggle" data-toggle="dropdown" >
 										Publikasi
 										<i class="fa fa-caret-down"></i>
@@ -39,7 +41,7 @@
 									<ul class="dropdown-menu">
 										<li class="dropdown-item"><a class="nav-link" href="pengaduan.php">Pengaduan</a></li>
 									</ul>
-								</li>
+								</li> -->
 								<li class="scroll">
 									<a href="<?php echo site_url('auth'); ?>">LOGIN</a></li>
 									

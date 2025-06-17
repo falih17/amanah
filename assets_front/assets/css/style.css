@@ -264,11 +264,11 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 
 .welcome-hero-txt h2 {
     font-size: 48px;
-    color: #fff;
+    /* color: #fff; */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2.4px;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 .welcome-hero-txt p {
     font-size: 18px;
@@ -590,7 +590,7 @@ a.welcome-hero-btn2 {
 
 .single-explore-txt {
     padding: 26px 25px 24px 15px;       
-    height:420px;
+    /* height:420px; */
 }
 .single-explore-txt.bg-theme-1 .explore-rating{background: #70a9ff;}
 .single-explore-txt.bg-theme-2 .explore-rating{background: #00c61c;}
