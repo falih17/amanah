@@ -12,5 +12,6 @@
   <source src="<?php echo base_url('uploads/media/').$data_media->media_file; ?>" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-
+<br/>
+<br/>
 <a class="btn btn-primary btn-sm" href="<?php echo site_url(); ?>"> Kembali </a>
