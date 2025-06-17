@@ -43,7 +43,7 @@
 									</ul>
 								</li> -->
 								<li class="scroll">
-									<a href="<?php echo site_url('auth'); ?>">LOGIN</a></li>
+									<a href="<?php echo site_url('auth/auth/login'); ?>">LOGIN</a></li>
 									
 								</ul><!--/.nav -->
 							</li>
