@@ -42,7 +42,7 @@
 										<li class="dropdown-item"><a class="nav-link" href="pengaduan.php">Pengaduan</a></li>
 									</ul>
 								</li> -->
-								<li class="scroll">
+								<li class="nav-item">
 									<a href="<?php echo site_url('auth/auth/login'); ?>">LOGIN</a></li>
 									
 								</ul><!--/.nav -->
