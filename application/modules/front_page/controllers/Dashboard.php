@@ -28,6 +28,14 @@ class Dashboard extends CI_Controller {
         $this->load->view('v_media',$v_data);
     }
 
+    public function showplayer($id){
+        $q = "SELECT * FROM t_media WHERE media_id='".$id."'";
+        $media = $this->db->query($q);
+        $v_data['media'] = $media;
+
+        $this->load->view('v_player',$v_data);
+    }
+
 }
 
 /* End of file Dashboard */

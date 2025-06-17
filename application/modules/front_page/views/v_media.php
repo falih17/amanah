@@ -109,7 +109,7 @@
 											</div>
 										</div>
 									</div>
-									<button class="btn btn-primary">Lihat</button>
+									<button class="btn btn-primary" onclick="goto_player(<?php echo $r->media_id; ?>)">Lihat</button>
 								</div>
 							</div>
 						</div>
@@ -203,7 +203,10 @@
         <!--Custom JS-->
         <script src="<?php echo base_url('assets_front'); ?>/assets/js/custom.js"></script>
         <script>
-            
+            function goto_player(id){
+                document.location.href = "<?php echo site_url('front_page/dashboard/showplayer/'); ?>"+id;
+            }
+
             $(document).ready(function() {
               $('#tm-home').addClass('active');
             });
