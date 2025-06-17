@@ -33,7 +33,7 @@ class Dashboard extends CI_Controller {
         $media = $this->db->query($q);
         $v_data['media'] = $media;
 
-        $this->load->view('v_player',$v_data);
+        $this->load->view('v_player2',$v_data);
     }
 
 }
