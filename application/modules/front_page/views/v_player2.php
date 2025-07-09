@@ -15,6 +15,7 @@
 <body>
   <div class="container mt-5">
     <div class="row justify-content-center">
+        <div class="col-md-8"><h2><?php echo $data_media->media_title; ?> </h2></div>
         <div class="col-md-8" id="tabs">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
