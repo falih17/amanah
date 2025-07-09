@@ -132,6 +132,73 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table s_usergroup
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `s_usergroup`;
+
+CREATE TABLE `s_usergroup` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_by` int DEFAULT NULL,
+  `updated_by` int DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
+  `desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+
+LOCK TABLES `s_usergroup` WRITE;
+/*!40000 ALTER TABLE `s_usergroup` DISABLE KEYS */;
+
+INSERT INTO `s_usergroup` (`id`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `name`, `desc`)
+VALUES
+	(1,'2019-02-14 10:47:52',NULL,NULL,NULL,NULL,'1. owner','administrator'),
+	(2,'2021-01-19 13:00:20',NULL,NULL,NULL,NULL,'2. admin',NULL),
+	(3,'2021-01-19 13:00:20',NULL,NULL,NULL,NULL,'3. distributor',NULL),
+	(4,'2021-01-19 13:00:20',NULL,NULL,NULL,NULL,'4. agen',NULL);
+
+/*!40000 ALTER TABLE `s_usergroup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+# Dump of table s_menu
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `s_menu`;
+
+CREATE TABLE `s_menu` (
+  `menu_id` int NOT NULL AUTO_INCREMENT,
+  `menu_nama` varchar(255) DEFAULT NULL,
+  `menu_ket` varchar(255) DEFAULT NULL,
+  `menu_url` varchar(255) DEFAULT NULL,
+  `menu_icon` varchar(255) DEFAULT NULL,
+  `menu_parent` int DEFAULT '0',
+  `menu_active` char(1) DEFAULT NULL,
+  `menu_kode` varchar(255) DEFAULT NULL,
+  `menu_order` smallint DEFAULT NULL,
+  PRIMARY KEY (`menu_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+
+LOCK TABLES `s_menu` WRITE;
+/*!40000 ALTER TABLE `s_menu` DISABLE KEYS */;
+
+INSERT INTO `s_menu` (`menu_id`, `menu_nama`, `menu_ket`, `menu_url`, `menu_icon`, `menu_parent`, `menu_active`, `menu_kode`, `menu_order`)
+VALUES
+	(1,'[< sys >]',NULL,'formx/formx/table/menu','fa fa-list',0,'y','form_1',0),
+	(2,'sys-menu',NULL,'formx/formx/table/menu','',1,'y','form_2',NULL),
+	(3,'user',NULL,'formx/formx/table/user','fa fa-user',10,'y','form_3',101),
+	(10,'Master',NULL,'','',0,'y','',1),
+	(39,'Data Company',NULL,'formx/formx/table/32','',1,'y','form_32',0),
+	(41,'sys-form generator',NULL,'formx_gen/','',1,'y','',NULL),
+	(50,'sys-user',NULL,'formx/formx/table/40',NULL,1,'y','form_40',0),
+	(52,'media',NULL,'formx/formx/table/29',NULL,10,'y','form_29',0),
+	(53,'Media Category',NULL,'formx/formx/table/44',NULL,10,'y','form_44',0);
+
+/*!40000 ALTER TABLE `s_menu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table s_akses
 # ------------------------------------------------------------
 
@@ -416,42 +483,6 @@ VALUES
 UNLOCK TABLES;
 
 
-# Dump of table s_menu
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `s_menu`;
-
-CREATE TABLE `s_menu` (
-  `menu_id` int NOT NULL AUTO_INCREMENT,
-  `menu_nama` varchar(255) DEFAULT NULL,
-  `menu_ket` varchar(255) DEFAULT NULL,
-  `menu_url` varchar(255) DEFAULT NULL,
-  `menu_icon` varchar(255) DEFAULT NULL,
-  `menu_parent` int DEFAULT '0',
-  `menu_active` char(1) DEFAULT NULL,
-  `menu_kode` varchar(255) DEFAULT NULL,
-  `menu_order` smallint DEFAULT NULL,
-  PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
-
-LOCK TABLES `s_menu` WRITE;
-/*!40000 ALTER TABLE `s_menu` DISABLE KEYS */;
-
-INSERT INTO `s_menu` (`menu_id`, `menu_nama`, `menu_ket`, `menu_url`, `menu_icon`, `menu_parent`, `menu_active`, `menu_kode`, `menu_order`)
-VALUES
-	(1,'[< sys >]',NULL,'formx/formx/table/menu','fa fa-list',0,'y','form_1',0),
-	(2,'sys-menu',NULL,'formx/formx/table/menu','',1,'y','form_2',NULL),
-	(3,'user',NULL,'formx/formx/table/user','fa fa-user',10,'y','form_3',101),
-	(10,'Master',NULL,'','',0,'y','',1),
-	(39,'Data Company',NULL,'formx/formx/table/32','',1,'y','form_32',0),
-	(41,'sys-form generator',NULL,'formx_gen/','',1,'y','',NULL),
-	(50,'sys-user',NULL,'formx/formx/table/40',NULL,1,'y','form_40',0),
-	(52,'media',NULL,'formx/formx/table/29',NULL,10,'y','form_29',0),
-	(53,'Media Category',NULL,'formx/formx/table/44',NULL,10,'y','form_44',0);
-
-/*!40000 ALTER TABLE `s_menu` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 # Dump of table s_user
 # ------------------------------------------------------------
@@ -505,38 +536,6 @@ VALUES
 
 /*!40000 ALTER TABLE `s_user` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Dump of table s_usergroup
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `s_usergroup`;
-
-CREATE TABLE `s_usergroup` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_by` int DEFAULT NULL,
-  `updated_by` int DEFAULT NULL,
-  `name` varchar(100) NOT NULL,
-  `desc` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
-
-LOCK TABLES `s_usergroup` WRITE;
-/*!40000 ALTER TABLE `s_usergroup` DISABLE KEYS */;
-
-INSERT INTO `s_usergroup` (`id`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `name`, `desc`)
-VALUES
-	(1,'2019-02-14 10:47:52',NULL,NULL,NULL,NULL,'1. owner','administrator'),
-	(2,'2021-01-19 13:00:20',NULL,NULL,NULL,NULL,'2. admin',NULL),
-	(3,'2021-01-19 13:00:20',NULL,NULL,NULL,NULL,'3. distributor',NULL),
-	(4,'2021-01-19 13:00:20',NULL,NULL,NULL,NULL,'4. agen',NULL);
-
-/*!40000 ALTER TABLE `s_usergroup` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 # Dump of table t_media
 # ------------------------------------------------------------
