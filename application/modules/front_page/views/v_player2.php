@@ -15,7 +15,7 @@
 <body>
   <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8" id="tabs">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
@@ -52,4 +52,11 @@
           </div>
     </div>
 </div>
+
+<script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+</script>
+
 </body>
