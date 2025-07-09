@@ -4,7 +4,7 @@
     <!-- jQuery (required by Bootstrap 4) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="<?php echo base_url('assets_front'); ?>/assets/js/bootstrap.bundle.min.js"></script>
-    
+
     <link rel="stylesheet" href="<?php echo base_url('assets_front'); ?>/assets/css/bootstrap.min.css">
 
 </head>
@@ -25,7 +25,7 @@
 
 <!-- Tab panes -->
 <div class="tab-content mt-3">
-    <div class="tab-pane fade show active" id="video" role="tabpanel" aria-labelledby="video-tab">
+    <div class="tab-pane show active" id="video" role="tabpanel" aria-labelledby="video-tab">
         <video width="480" height="320" controls>
             <source src="<?php echo base_url('uploads/media/').$data_media->media_file; ?>" type="video/mp4">
             Your browser does not support the video tag.
