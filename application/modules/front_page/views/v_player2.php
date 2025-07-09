@@ -12,34 +12,42 @@
 <?php 
     $data_media = $media->row(); 
 ?>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="true">Bahasa Indonesia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Bahasa Madura</a>
+                </li>
+            </ul>
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video" aria-selected="true">Bahasa Indonesia</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Bahasa Madura</a>
-    </li>
-</ul>
+            <!-- Tab panes -->
+            <div class="tab-content mt-3">
+                <div class="tab-pane show active" id="video" role="tabpanel" aria-labelledby="video-tab">
+                    <video width="480" height="320" controls>
+                        <source src="<?php echo base_url('uploads/media/').$data_media->media_file; ?>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
 
-<!-- Tab panes -->
-<div class="tab-content mt-3">
-    <div class="tab-pane show active" id="video" role="tabpanel" aria-labelledby="video-tab">
-        <video width="480" height="320" controls>
-            <source src="<?php echo base_url('uploads/media/').$data_media->media_file; ?>" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+                <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+                    <video width="480" height="320" controls>
+                        <source src="<?php echo base_url('uploads/media/').$data_media->media_file2; ?>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
 
-    <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
-        <video width="480" height="320" controls>
-            <source src="<?php echo base_url('uploads/media/').$data_media->media_file2; ?>" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+            <br/><br/>
+
+            <a class="btn btn-primary btn-sm" href="<?php echo site_url(); ?>">Kembali</a>
+
+          </div>
     </div>
 </div>
-
-<br/><br/>
-
-<a class="btn btn-primary btn-sm" href="<?php echo site_url(); ?>">Kembali</a>
+</body>
