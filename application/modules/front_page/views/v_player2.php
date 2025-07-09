@@ -28,7 +28,7 @@
 
             <!-- Tab panes -->
             <div class="tab-content mt-3">
-                <div class="tab-pane show active" id="video" role="tabpanel" aria-labelledby="video-tab">
+                <div class="tab-pane active" id="video" role="tabpanel" aria-labelledby="video-tab">
                     <h3>Video Ini Berbahasa Indonesia</h3>
                     <video width="480" height="320" controls preload="metadata" id="v_indo">
                         <source src="<?php echo base_url('uploads/media/').$data_media->media_file; ?>" type="video/mp4">
@@ -36,7 +36,7 @@
                     </video>
                 </div>
 
-                <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+                <div class="tab-pane" id="info" role="tabpanel" aria-labelledby="info-tab">
                     <h3>Video Ini Berbahasa Madura</h3>
                     <video width="480" height="320" controls preload="metadata" id="v_madura">
                         <source src="<?php echo base_url('uploads/media/').$data_media->media_file2; ?>" type="video/mp4">
