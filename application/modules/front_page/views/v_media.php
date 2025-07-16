@@ -96,7 +96,7 @@
 						<div class="col-md-4  col-sm-6">
 							<div class="single-explore-item">
 								<div class="single-explore-img text-center">
-										
+									<img src="<?php echo base_url('uploads/thumbnail/'.$r->media_thumbnail);?>" >	
 								</div>
 								<div class="single-explore-txt bg-theme-2">
 									<h2 class="text-center"><a href="#"><?php echo $r->media_title;?></a></h2>
