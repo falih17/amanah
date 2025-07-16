@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller {
     public function index()
     {
         // $this->load->model('M_t_media_category');
-        $q = "SELECT * FROM t_media_category";
+        $q = "SELECT * FROM t_media_category ORDER BY order ASC";
         $category = $this->db->query($q);
         $v_data['category'] = $category;
 
@@ -22,6 +22,15 @@ class Dashboard extends CI_Controller {
 
     public function media_category($id){
         $q = "SELECT * FROM t_media WHERE media_category='".$id."'";
+        $media = $this->db->query($q);
+        $v_data['media'] = $media;
+
+        $this->load->view('v_media',$v_data);
+    }
+
+    public function show_search(){
+        $keyword = $this->input->post('s_keyword');
+        $q = "SELECT * FROM t_media WHERE media_title LIKE '%".$keyword."%'";
         $media = $this->db->query($q);
         $v_data['media'] = $media;
 

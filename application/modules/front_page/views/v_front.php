@@ -75,7 +75,7 @@
 					<div class="welcome-hero-form">
 						<div class="single-welcome-hero-form">
 							<h3>Konten ?</h3>
-							<form action="<?php echo site_url('dashboard/show_search'); ?>">
+							<form action="<?php echo site_url('front_page/dashboard/show_search'); ?>" id="f_search">
 								<input name="s_keyword" id="s_keyword" type="text" placeholder="Topik maupun informasi yang diinginkan" />
 							</form>
 							<div class="welcome-hero-form-icon">
@@ -84,7 +84,7 @@
 						</div>
 					</div>
 					<div class="welcome-hero-serch">
-						<button class="welcome-hero-btn" onclick="window.location.href='#'">
+						<button class="welcome-hero-btn" id="btn_submit_search">
 							 Cari <i data-feather="search"></i> 
 						</button>
 					</div>
@@ -236,6 +236,11 @@
 			  $("#s_keyword").autocomplete({
 					source: "<?php echo site_url('front_page/dashboard/media_search'); ?>"
 				});
+
+				$("#btn_submit_search").click(function(){
+					$('#f_search').submit();
+				});
+				
             });
         </script>
     </body>
