@@ -51,11 +51,7 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-		<!-- jQuery UI CSS -->
-		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
-		<!-- jQuery UI -->
-		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+		
 
     </head>
 	
@@ -79,7 +75,7 @@
 					<div class="welcome-hero-form">
 						<div class="single-welcome-hero-form">
 							<h3>Konten ?</h3>
-							<form action="index.html">
+							<form action="<?php echo site_url('dashboard/show_search'); ?>">
 								<input name="s_keyword" id="s_keyword" type="text" placeholder="Topik maupun informasi yang diinginkan" />
 							</form>
 							<div class="welcome-hero-form-icon">
@@ -220,7 +216,13 @@
         <script src="<?php echo base_url('assets_front'); ?>/assets/js/slick.min.js"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-		     
+		
+		<!-- jQuery UI CSS -->
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+		<!-- jQuery UI -->
+		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+		
         <!--Custom JS-->
         <script src="<?php echo base_url('assets_front'); ?>/assets/js/custom.js"></script>
         <script>
