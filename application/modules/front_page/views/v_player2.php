@@ -64,7 +64,7 @@
 
             <br/><br/>
 
-            <a class="btn btn-primary btn-sm" href="<?php echo site_url(); ?>">Kembali</a>
+            <a class="btn btn-primary btn-sm" id="btn-back">Kembali</a>
 
           </div>
     </div>
@@ -73,7 +73,11 @@
 <script>
   $( function() {
     $( "#tabs" ).tabs();
-  } );
+
+    $("#btn-back").click(function(){
+        history.go(-1);
+    });     
+  });
 </script>
 
 </body>
