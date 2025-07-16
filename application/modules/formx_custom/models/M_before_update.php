@@ -8,7 +8,7 @@ class M_before_update extends CI_Model {
 		// var_dump($data);
 		$data_id = $id;
 		$w = array(
-			'id' => $data_id
+			'media_id' => $data_id
 		);
 		$this->db->where($w);
 		$t = $this->db->get('t_media');
