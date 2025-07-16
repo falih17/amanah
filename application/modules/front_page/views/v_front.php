@@ -222,7 +222,7 @@
 
 		<!-- jQuery UI -->
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-		
+
         <!--Custom JS-->
         <script src="<?php echo base_url('assets_front'); ?>/assets/js/custom.js"></script>
         <script>
@@ -234,7 +234,7 @@
               $('#tm-home').addClass('active');
 
 			  $("#s_keyword").autocomplete({
-					source: "<?php echo site_url('dashboard/media_search'); ?>"
+					source: "<?php echo base_url('dashboard/media_search'); ?>"
 				});
             });
         </script>
