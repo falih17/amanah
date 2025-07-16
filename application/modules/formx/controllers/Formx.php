@@ -244,11 +244,11 @@ class Formx extends MY_Controller
                         }else{
                             $folder_upload = 'uploads/'.$p->form_id.'_'.$p->column_name.'/';
                         }
-                        $row[]='<div class="fileinput-new thumbnail" >
-                                    <a data-fancybox="gallery" href="'.load_image($folder_upload.$d->{$p->column_name}).'">';
-                        // $row[].= '<img src="'.load_thumb($folder_upload.$d->{$p->column_name}).'" alt="" style="max-width: 100px; max-height: 100px;"/>';
-                        $row[].= '<span  class="btn btn-sm blue" alt=""><i class="fa fa-file-image"></i> show</span>';
-                        $row[].= '</a></div>';
+                        // $row[]='<div class="fileinput-new thumbnail" >
+                        //             <a data-fancybox="gallery" href="'.load_image($folder_upload.$d->{$p->column_name}).'">';
+                        $row[].= '<img src="'.load_thumb($folder_upload.$d->{$p->column_name}).'" alt="" style="max-width: 100px; max-height: 100px;"/>';
+                        // $row[].= '<span  class="btn btn-sm blue" alt=""><i class="fa fa-file-image"></i> show</span>';
+                        // $row[].= '</a></div>';
                     } else {
                         $row[] = $d->{$p->column_name};
                     }
