@@ -70,7 +70,7 @@
 				<div class="section-header text-center">
 					<h2>List Media</h2>
 					<p class="">
-						Silahkan pilih kategori topik yang diinginkan
+						Silahkan pilih topik yang diinginkan
 						<br/>
 					</p>					
 				</div><!--/.section-header-->
