@@ -28,6 +28,19 @@ class Dashboard extends CI_Controller {
         $this->load->view('v_media',$v_data);
     }
 
+    public function media_search(){
+        $keyword = $this->input->post('s_keyword');
+        $q = "SELECT * FROM t_media WHERE media_title LIKE '%".$id."%' ";
+        $media = $this->db->query($q);
+
+        $suggestions = [];
+        foreach ($media->result() as $r) {
+            $suggestions[] = $r->media_title;
+        }
+
+        echo json_encode($suggestions);
+    }
+
     public function showplayer($id){
         $q = "SELECT * FROM t_media WHERE media_id='".$id."'";
         $media = $this->db->query($q);

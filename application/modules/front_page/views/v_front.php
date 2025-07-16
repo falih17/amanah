@@ -73,9 +73,9 @@
 				<div class="welcome-hero-serch-box">
 					<div class="welcome-hero-form">
 						<div class="single-welcome-hero-form">
-							<h3>Berita ?</h3>
+							<h3>Konten ?</h3>
 							<form action="index.html">
-								<input type="text" placeholder="Topik maupun informasi yang diinginkan" />
+								<input name="s_keyword" id="s_keyword" type="text" placeholder="Topik maupun informasi yang diinginkan" />
 							</form>
 							<div class="welcome-hero-form-icon">
 								<i class="flaticon-list-with-dots"></i>
@@ -225,6 +225,10 @@
             
             $(document).ready(function() {
               $('#tm-home').addClass('active');
+
+			  $("#s_keyword").autocomplete({
+					source: "<?php echo site_url('dashboard/media_search'); ?>"
+				});
             });
         </script>
     </body>
