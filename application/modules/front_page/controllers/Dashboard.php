@@ -29,8 +29,8 @@ class Dashboard extends CI_Controller {
     }
 
     public function media_search(){
-        $keyword = $this->input->post('s_keyword');
-        $q = "SELECT * FROM t_media WHERE media_title LIKE '%".$id."%' ";
+        $keyword = $this->input->get('term');
+        $q = "SELECT * FROM t_media WHERE media_title LIKE '%".$keyword."%' ";
         $media = $this->db->query($q);
 
         $suggestions = [];
