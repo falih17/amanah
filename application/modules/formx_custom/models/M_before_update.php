@@ -3,25 +3,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_before_update extends CI_Model {
 
-	// public function t_hk_schedule($id,$data)
-	// {
-	// 	$w = array(
-	// 		't_hk_schedule_id !=' => $id,
-	// 		't_hk_id' => $data['t_hk_id'],
-	// 		't_hk_schedule_date' => $data['t_hk_schedule_date'],
-	// 	);
-	// 	$this->db->where($w);
-	// 	$t= $this->db->get('t_hk_schedule');
+	public function t_media($id,$data)
+	{
+		// var_dump($data);
+		$data_id = $id;
+		$w = array(
+			'id' => $data_id
+		);
+		$this->db->where($w);
+		$t = $this->db->get('t_media');
+		$t = $t->row();
+		$file_exist_uploaded = $t->media_file;
+		$lokasi_file = "./uploads/media/".$file_exist_uploaded;
+		if(!empty($data['media_file'])){
+			if(file_exists($lokasi_file)){
+				unlink($lokasi_file);
+			}
+		}
 
-	// 	if ($t->num_rows()>0) {
-	// 		$res['success'] = false;
- //            $res['message'] = 'Jadwal sudah ada';
- //            $this->output->set_content_type('application/json')->_display(json_encode($res));
- //            die();
-	// 	}
+		$file_exist_uploaded = $t->media_file2;
+		$lokasi_file = "./uploads/media/".$file_exist_uploaded;
+		if(!empty($data['media_file2'])){
+			if(file_exists($lokasi_file)){
+				unlink($lokasi_file);
+			}
+		}
 
-	// 	return $data;
-	// }
+		return $data;
+	}
 
 	// public function m_user($id,$data)
 	// {
