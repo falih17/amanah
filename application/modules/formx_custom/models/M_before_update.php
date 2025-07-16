@@ -13,25 +13,25 @@ class M_before_update extends CI_Model {
 		$this->db->where($w);
 		$t = $this->db->get('t_media');
 		$t = $t->row();
-		$file_exist_uploaded = $t->media_file;
-		$lokasi_file = "./uploads/media/".$file_exist_uploaded;
-		if(!empty($data['media_file'])){
+		$file_exist_uploaded1 = $t->media_file;
+		$lokasi_file = "./uploads/media/".$file_exist_uploaded1;
+		if(!empty($data['media_file']) && !empty($file_exist_uploaded1)){
 			if(file_exists($lokasi_file)){
 				unlink($lokasi_file);
 			}
 		}
 
-		$file_exist_uploaded = $t->media_file2;
-		$lokasi_file = "./uploads/media/".$file_exist_uploaded;
-		if(!empty($data['media_file2'])){
+		$file_exist_uploaded2 = $t->media_file2;
+		$lokasi_file = "./uploads/media/".$file_exist_uploaded2;
+		if(!empty($data['media_file2']) && !empty($file_exist_uploaded2)){
 			if(file_exists($lokasi_file)){
 				unlink($lokasi_file);
 			}
 		}
 
-		$file_exist_uploaded = $t->media_thumbnail;
-		$lokasi_file = "./uploads/thumbnail/".$file_exist_uploaded;
-		if(!empty($data['media_thumbnail'])){
+		$file_exist_uploaded3 = $t->media_thumbnail;
+		$lokasi_file = "./uploads/thumbnail/".$file_exist_uploaded3;
+		if(!empty($data['media_thumbnail']) && !empty($file_exist_uploaded3)){
 			if(file_exists($lokasi_file)){
 				unlink($lokasi_file);
 			}
