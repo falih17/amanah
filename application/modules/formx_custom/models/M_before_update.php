@@ -29,6 +29,14 @@ class M_before_update extends CI_Model {
 			}
 		}
 
+		$file_exist_uploaded = $t->media_thumbnail;
+		$lokasi_file = "./uploads/thumbnail/".$file_exist_uploaded;
+		if(!empty($data['media_thumbnail'])){
+			if(file_exists($lokasi_file)){
+				unlink($lokasi_file);
+			}
+		}
+
 		return $data;
 	}
 
