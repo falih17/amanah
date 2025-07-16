@@ -234,7 +234,7 @@
               $('#tm-home').addClass('active');
 
 			  $("#s_keyword").autocomplete({
-					source: "<?php echo base_url('dashboard/media_search'); ?>"
+					source: "<?php echo site_url('front_page/dashboard/media_search'); ?>"
 				});
             });
         </script>
