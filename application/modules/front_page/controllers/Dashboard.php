@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller {
     public function index()
     {
         // $this->load->model('M_t_media_category');
-        $q = "SELECT * FROM t_media_category ORDER BY order ASC";
+        $q = "SELECT * FROM t_media_category ORDER BY reorder ASC";
         $category = $this->db->query($q);
         $v_data['category'] = $category;
 
