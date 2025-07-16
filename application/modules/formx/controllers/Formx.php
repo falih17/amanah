@@ -18,7 +18,6 @@ class Formx extends MY_Controller
         $this->load->library('form_validation');
         $this->load->helper('general');
         $this->data['authorize'] = 'write';
-
     }
 
     public function tree($form_id)
@@ -171,8 +170,10 @@ class Formx extends MY_Controller
                 $add_btn = '';
                 if (!empty($m_form->datatable_button_addon)) {
                     $n1 = str_replace("URL",site_url(),$m_form->datatable_button_addon);
-                    $n2 = str_replace("ID",$d->{$this->Formx_model->primary_key},$n1);
-                    $add_btn = $n2;
+                    $n2 = str_replace("UID",$this->session->userdata('user_id'),$n1);
+                    $n3 = str_replace("ID",$d->{$this->Formx_model->primary_key},$n2);
+                    
+                    $add_btn = $n3;
                 }
 
                 // custom function to show hide edit button
@@ -202,6 +203,12 @@ class Formx extends MY_Controller
                             $row[]='';
                         }
 
+                    }elseif ($p->type == 'date') {
+                        if (!empty($d->{$p->column_name})) {
+                            $row[] = substr($d->{$p->column_name},0, 10) ;
+                        }else{
+                            $row[]='';
+                        }
                     }elseif ($p->type == 'int_separator') {
                         if (!empty($d->{$p->column_name})) {
                             $row[] = number_format($d->{$p->column_name},0, ',', '.') ;
@@ -212,16 +219,25 @@ class Formx extends MY_Controller
                         $linkfile = base_url($p->path_upload.$d->{$p->column_name});
                         $file_entry = $d->{$p->column_name};
                         if(isset($file_entry)){
-                            $row[]='<a href="'.$linkfile.'" class="btn blue"><i class="fa fa-download"></i> Download'
+                            $row[]='<a href="'.$linkfile.'" target="_blank" class="btn btn-sm blue"><i class="fa fa-download"></i> Download'
                         // .$d->{$p->column_name}
                             .'</a>';
                         }else{
                             $row[]="belum tersedia";
                         }
                     }elseif ($p->type == 'latlong') {
-                        $row[]='<a href="#" target="blank" class="btn blue"><i class="fa fa-map"></i> show'
+                        $row[]='<a href="#" target="blank" class="btn btn-sm blue"><i class="fa fa-map"></i> show'
                         // .$d->{$p->column_name}
                         .'</a>';
+                    }elseif ($p->type == 'link_url') {
+                        $link_entry = $d->{$p->column_name};
+                        if(!empty($link_entry)){
+                            $row[]='<a href="'.$d->{$p->column_name}.'" target="blank" class="btn btn-sm blue"><i class="fa fa-link"></i> show'
+                            // .
+                            .'</a>';
+                        }else{
+                            $row[]="belum tersedia";
+                        }
                     }elseif ($p->type == 'img') {
                         if(!empty($p->path_upload)){
                             $folder_upload = $p->path_upload;
@@ -229,10 +245,10 @@ class Formx extends MY_Controller
                             $folder_upload = 'uploads/'.$p->form_id.'_'.$p->column_name.'/';
                         }
                         $row[]='<div class="fileinput-new thumbnail" >
-                        <a data-fancybox="gallery" href="'.load_image($folder_upload.$d->{$p->column_name}).'">
-                            <img src="'.load_thumb($folder_upload.$d->{$p->column_name}).'" alt="" style="max-width: 100px; max-height: 100px;"/>
-                        </a>
-                    </div>';
+                                    <a data-fancybox="gallery" href="'.load_image($folder_upload.$d->{$p->column_name}).'">';
+                        // $row[].= '<img src="'.load_thumb($folder_upload.$d->{$p->column_name}).'" alt="" style="max-width: 100px; max-height: 100px;"/>';
+                        $row[].= '<span  class="btn btn-sm blue" alt=""><i class="fa fa-file-image"></i> show</span>';
+                        $row[].= '</a></div>';
                     } else {
                         $row[] = $d->{$p->column_name};
                     }
@@ -265,6 +281,12 @@ class Formx extends MY_Controller
         $records["recordsFiltered"] = $iTotalRecords;
 
         $this->output->set_content_type('application/json')->set_output(json_encode($records));
+    }
+
+    public function profile(){
+        $datalog_user = $this->data['user'];
+        $form_id = 49; //form dari generate formx
+        $this->form($form_id,$datalog_user->id);
     }
 
     public function read($form_id=null,$id=null)
@@ -388,15 +410,16 @@ class Formx extends MY_Controller
                 }
                 elseif ($p->type == 'img' || $p->type == 'file') {
                     if (!empty($_FILES[$p->column_name]['name'])) {
-                        if(!empty($p->path_upload)){
+                        if(!empty($p->path_upload)){  
                             $folder_upload = $p->path_upload;
                         }else{
                             $folder_upload = 'uploads/'.$p->form_id.'_'.$p->column_name.'/';
                         }
                         $res = $this->_upload($folder_upload,$p->column_name);
                         if ($res['success']) {
+                            $Ym_folder = date('Y').'/'.date('m').'/';
                             if (isset($res['upload_data'])) {
-                                $data[$p->column_name] = $res['upload_data']['file_name'];
+                                $data[$p->column_name] = $Ym_folder.$res['upload_data']['file_name'];
                             }
                         }else{
                             $this->output->set_content_type('application/json')->set_output(json_encode($res))->_display();

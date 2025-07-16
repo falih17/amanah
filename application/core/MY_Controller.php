@@ -165,12 +165,13 @@ class MY_Controller extends CI_Controller
         if(is_array($targetPath)){
             $config = array_merge($config, $targetPath);
         }else{
+            $Ym_folder = date('Y').'/'.date('m').'/';
             if (empty($targetPath)) {
                 $targetPath= "uploads/temp";
             }
-            $config['upload_path']   = "./".$targetPath;
+            $config['upload_path']   = "./".$targetPath.$Ym_folder;
         }
-        // $config['file_name']     = do_hash(date("Y/m/d h:i:sa"));
+        $config['file_name']     = do_hash(date("YmdHis"));
 
         $this->load->model('formx/m_public_function');
         $response = $this->m_public_function->upload($config,$form_upload_name);

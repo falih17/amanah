@@ -17,7 +17,6 @@ class M_public_function extends MY_Model {
             mkdir($config['upload_path'],0775,true);
         }
 
-
         if (!$this->upload->do_upload($form_upload_name)) {
             $error = $this->upload->display_errors();
             $response = array(
@@ -42,18 +41,18 @@ class M_public_function extends MY_Model {
             );
             // var_dump($response);
 
-            if ($upload_data['is_image']) {
-                $image_width = $upload_data['image_width'];
-                // crop
-                if (!empty($this->input->post('w'))) {
-                    $response['message'].=$this->crop($targetFile);
-                    $image_width = $this->input->post('w');
-                }
-                // watermark
-                // $response['message'].=$this->watermark($targetFile, $image_width);
-                // thumnail
-                $response['message'].=$this->thumbnail($targetFile,$raw_name,$file_ext);
-            }
+            // if ($upload_data['is_image']) {
+            //     $image_width = $upload_data['image_width'];
+            //     // crop
+            //     if (!empty($this->input->post('w'))) {
+            //         $response['message'].=$this->crop($targetFile);
+            //         $image_width = $this->input->post('w');
+            //     }
+            //     // watermark
+            //     // $response['message'].=$this->watermark($targetFile, $image_width);
+            //     // thumnail
+            //     $response['message'].=$this->thumbnail($targetFile,$raw_name,$file_ext);
+            // }
             
             if (empty($response['message'])) {
                 $response['success'] =true;
